@@ -21,6 +21,6 @@ public class TestClient {
         // Testează adăugarea unei rezervări în istoricul clientului
         Rezervare rezervare = new Rezervare(1, new Date(), new Date(), client, new Locuinta(1, "Apartament", "București", 150.0, "Locuință confortabilă"));
         client.getIstoricRezervari().add(rezervare); // Adăugăm rezervarea în istoricul clientului
-        System.out.println("Istoric rezervări: " + client.getIstoricRezervari().size() + " rezervări.");
+        System.out.println("Istoric rezervări: " + client.getIstoricRezervari().size() + " rezervari.");
     }
 }
