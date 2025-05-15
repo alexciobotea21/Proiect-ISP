@@ -8,6 +8,7 @@ public class Rezervare {
     private Date dataSfarsit;
     private Client utilizatorClient;
     private Locuinta locuinta;
+    private boolean confirmare; // ✅ noua variabilă
 
     public Rezervare(int id, Date dataInceput, Date dataSfarsit, Client utilizatorClient, Locuinta locuinta) {
         this.id = id;
@@ -15,6 +16,7 @@ public class Rezervare {
         this.dataSfarsit = dataSfarsit;
         this.utilizatorClient = utilizatorClient;
         this.locuinta = locuinta;
+        this.confirmare = false; // implicit, rezervarea nu este confirmată
     }
 
     // Getters și Setters
@@ -58,12 +60,22 @@ public class Rezervare {
         this.locuinta = locuinta;
     }
 
+    public boolean isConfirmare() {
+        return confirmare;
+    }
+
+    public void setConfirmare(boolean confirmare) {
+        this.confirmare = confirmare;
+    }
+
     // Metode
     public void confirmareRezervare() {
+        this.confirmare = true;
         System.out.println("Rezervarea a fost confirmată.");
     }
 
     public void anulareRezervare() {
+        this.confirmare = false;
         System.out.println("Rezervarea a fost anulată.");
     }
 }

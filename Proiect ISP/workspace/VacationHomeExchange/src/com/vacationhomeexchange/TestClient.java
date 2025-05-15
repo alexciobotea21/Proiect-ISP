@@ -14,13 +14,13 @@ public class TestClient {
         System.out.println("Rol: " + client.getRol());
 
         // Testează metodele
-        client.cautaLocuinte();
-        client.rezervaLocuinta();
-        client.evalueazaLocuinta();
+        client.cautaLocuinte(null, null, null, 0);
+        client.rezervaLocuinta(null, null, null);
+        client.evalueazaLocuinta(0, null, 0, null);
         
         // Testează adăugarea unei rezervări în istoricul clientului
         Rezervare rezervare = new Rezervare(1, new Date(), new Date(), client, new Locuinta(1, "Apartament", "București", 150.0, "Locuință confortabilă"));
         client.getIstoricRezervari().add(rezervare); // Adăugăm rezervarea în istoricul clientului
-        System.out.println("Istoric rezervări: " + client.getIstoricRezervari().size() + " rezervari.");
+        System.out.println("Istoric rezervări: " + client.getIstoricRezervari().size() + " rezervări.");
     }
 }
