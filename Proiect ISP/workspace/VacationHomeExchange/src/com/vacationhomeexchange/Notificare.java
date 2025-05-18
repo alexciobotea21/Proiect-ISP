@@ -3,55 +3,72 @@ package com.vacationhomeexchange;
 import java.util.Date;
 
 public class Notificare {
-    // Atribute
+
+    public enum TipNotificare {
+        INFORMATIVA,
+        REZERVARE_CONFIRMATA,
+        MESAJ_NOU,
+        ALERTA_IMPORTANTA
+    }
+
     private int id;
     private String mesaj;
     private Date data;
-    private String tipNotificare;
+    private TipNotificare tip;
+    private String emailDestinatar;
 
-    // Constructor
-    public Notificare(int id, String mesaj, Date data, String tipNotificare) {
+    // Constructor complet
+    public Notificare(int id, String mesaj, Date data, TipNotificare tip, String emailDestinatar) {
+        if (mesaj == null || mesaj.trim().isEmpty()) {
+            throw new IllegalArgumentException("Mesajul notificării nu poate fi gol.");
+        }
+
         this.id = id;
         this.mesaj = mesaj;
         this.data = data;
-        this.tipNotificare = tipNotificare;
+        this.tip = tip;
+        this.emailDestinatar = emailDestinatar;
     }
 
-    // Getters și Setters
+    // Constructor fără ID
+    public Notificare(String mesaj, Date data, TipNotificare tip, String emailDestinatar) {
+        if (mesaj == null || mesaj.trim().isEmpty()) {
+            throw new IllegalArgumentException("Mesajul notificării nu poate fi gol.");
+        }
+
+        this.mesaj = mesaj;
+        this.data = data;
+        this.tip = tip;
+        this.emailDestinatar = emailDestinatar;
+    }
+
+    // Getters
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getMesaj() {
         return mesaj;
     }
 
-    public void setMesaj(String mesaj) {
-        this.mesaj = mesaj;
-    }
-
     public Date getData() {
         return data;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public TipNotificare getTip() {
+        return tip;
     }
 
-    public String getTipNotificare() {
-        return tipNotificare;
+    public String getEmailDestinatar() {
+        return emailDestinatar;
     }
 
-    public void setTipNotificare(String tipNotificare) {
-        this.tipNotificare = tipNotificare;
-    }
-
-    // Metoda pentru trimiterea notificării
+    // Metode specifice
     public void trimiteNotificare() {
-        System.out.println("Notificare trimisă: " + mesaj + " Tip: " + tipNotificare);
+        System.out.println("🔔 Notificare pentru " + emailDestinatar + ": [" + tip + "] " + mesaj);
+    }
+
+    public void programeazaNotificare(Date dataProgramata) {
+        System.out.println("📅 Notificare programată pentru " + emailDestinatar + " la " + dataProgramata);
     }
 }

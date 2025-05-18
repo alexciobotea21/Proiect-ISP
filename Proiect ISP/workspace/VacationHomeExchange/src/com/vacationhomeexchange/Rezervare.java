@@ -8,13 +8,25 @@ public class Rezervare {
     private Date dataSfarsit;
     private Client utilizatorClient;
     private Locuinta locuinta;
+    private boolean confirmata;
 
     public Rezervare(int id, Date dataInceput, Date dataSfarsit, Client utilizatorClient, Locuinta locuinta) {
+        if (dataInceput == null || dataSfarsit == null) {
+            throw new IllegalArgumentException("Datele de început și sfârșit nu pot fi null.");
+        }
+        if (locuinta == null) {
+            throw new IllegalArgumentException("Locuința nu poate fi null.");
+        }
+        
+        if (utilizatorClient == null) {
+            throw new IllegalArgumentException("Clientul nu poate fi null.");
+        }
         this.id = id;
         this.dataInceput = dataInceput;
         this.dataSfarsit = dataSfarsit;
         this.utilizatorClient = utilizatorClient;
         this.locuinta = locuinta;
+        this.confirmata = false;
     }
 
     // Getters și Setters
@@ -58,12 +70,24 @@ public class Rezervare {
         this.locuinta = locuinta;
     }
 
+    public boolean isConfirmata() {
+    	return confirmata;
+    }
+
+    public void setConfirmata(boolean confirmata) {
+    	this.confirmata = confirmata;
+    }
+
     // Metode
     public void confirmareRezervare() {
+        this.confirmata = true;
         System.out.println("Rezervarea a fost confirmată.");
     }
 
     public void anulareRezervare() {
+        this.confirmata = false;
         System.out.println("Rezervarea a fost anulată.");
     }
+    
+    
 }
