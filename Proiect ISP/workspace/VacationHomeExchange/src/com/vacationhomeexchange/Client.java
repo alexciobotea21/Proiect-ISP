@@ -63,7 +63,7 @@ public class Client extends Utilizator {
         // Verificăm dacă această locuință a fost rezervată de client
         boolean rezervareGasita = false;
         for (Rezervare rez : istoricRezervari) {
-            if (rez.getLocuinta().getId() == locuinta.getId() && rez.isConfirmare()) {
+            if (rez.getLocuinta().getId() == locuinta.getId() && rez.isConfirmata()) {
                 rezervareGasita = true;
                 break;
             }

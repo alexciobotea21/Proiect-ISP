@@ -1,21 +1,25 @@
 package com.vacationhomeexchange;
 
 public class Locuinta {
-    // Atribute
-    private int id;
-    private String tip;
-    private String locatie;
-    private double pret;
-    private String descriere;
+	private int id;
+	private String tip;
+	private String locatie;
+	private double pret;
+	private String descriere;
+	private String emailProprietar; // adaugă acest atribut
 
-    // Constructor
-    public Locuinta(int id, String tip, String locatie, double pret, String descriere) {
-        this.id = id;
-        this.tip = tip;
-        this.locatie = locatie;
-        this.pret = pret;
-        this.descriere = descriere;
-    }
+	public Locuinta(int id, String tip, String locatie, double pret, String descriere, String emailProprietar) {
+	    this.id = id;
+	    this.tip = tip;
+	    this.locatie = locatie;
+	    this.pret = pret;
+	    this.descriere = descriere;
+	    this.emailProprietar = emailProprietar;
+	}
+
+	public String getEmailProprietar() {
+	    return emailProprietar;
+	}
 
     // Getters și Setters
     public int getId() {

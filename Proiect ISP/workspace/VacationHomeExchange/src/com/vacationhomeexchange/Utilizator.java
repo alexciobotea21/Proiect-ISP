@@ -1,6 +1,7 @@
 package com.vacationhomeexchange;
 
 import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -13,7 +14,7 @@ public class Utilizator {
     private String email;
     private String parola;
     private String rol;
-    private List<Notificare> notificari;
+    private List<Notificare> notificari = new ArrayList<>();
 
     // Constructor
     public Utilizator(int id, String nume, String email, String parola, String rol) {

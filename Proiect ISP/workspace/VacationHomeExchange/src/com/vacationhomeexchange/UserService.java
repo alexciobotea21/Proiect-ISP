@@ -58,4 +58,18 @@ public class UserService {
                 System.out.println("• " + u.getNume() + " (" + u.getEmail() + ", " + u.getRol() + ")"));
         }
     }
+
+    // ✅ Metodă nouă pentru actualizarea unui utilizator existent (ex: notificări noi)
+    public static void update(Utilizator utilizator) {
+        List<Utilizator> users = store.load();
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getEmail().equalsIgnoreCase(utilizator.getEmail())) {
+                users.set(i, utilizator);
+                store.save(users);
+                System.out.println("🔁 Utilizator actualizat.");
+                return;
+            }
+        }
+        System.out.println("⚠️ Utilizatorul nu a fost găsit pentru actualizare.");
+    }
 }
