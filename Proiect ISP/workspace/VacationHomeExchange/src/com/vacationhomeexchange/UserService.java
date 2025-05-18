@@ -15,6 +15,11 @@ public class UserService {
     }
 
     public static void add(Utilizator u) {
+    	if (u == null || u.getEmail() == null || !u.getEmail().contains("@") || !u.getEmail().contains(".")) {
+            System.out.println("⚠️ Email invalid. Utilizatorul nu a fost adăugat.");
+            return;
+        }
+    	
         List<Utilizator> users = store.load();
         users.add(u);
         store.save(users);
@@ -51,13 +56,15 @@ public class UserService {
 
     public static void afiseazaToti() {
         List<Utilizator> users = store.load();
-        if (users.isEmpty()) {
-            System.out.println("⚠️ Nu există utilizatori înregistrați.");
-        } else {
-            users.forEach(u ->
-                System.out.println("• " + u.getNume() + " (" + u.getEmail() + ", " + u.getRol() + ")"));
+        if (users == null || users.isEmpty()) {
+            System.out.println("📭 Nu există utilizatori în sistem.");
+            return;
         }
+
+        System.out.println("📋 Utilizatori existenți:");
+        users.forEach(u -> System.out.println("- " + u.getNume() + " (" + u.getEmail() + ")"));
     }
+
 
     public static void update(Utilizator utilizator) {
         List<Utilizator> users = store.load();

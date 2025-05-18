@@ -1,0 +1,1 @@
+[{"id":1,"dataInceput":"Nov 11, 1111, 12:00:00 AM","dataSfarsit":"Feb 22, 2222, 12:00:00 AM","utilizatorClient":{"istoricRezervari":[],"id":0,"nume":"Alex","email":"alex@gmail.com","parola":"alex","rol":"client","notificari":[]},"locuinta":{"id":1,"tip":"casa","locatie":"Bucuresti","pret":100.0,"descriere":"top","emailProprietar":"test@gmail.com"},"confirmata":true}]
